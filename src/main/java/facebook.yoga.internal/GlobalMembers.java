@@ -12,17 +12,17 @@ public class GlobalMembers
 
 	public static void enable(Experiment experiment)
 	{
-	  detail.GlobalMembers.enabledExperiments.set((long)experiment);
+	  detail.GlobalMembers.enabledExperiments.set((Integer)experiment);
 	}
 
 	public static void disable(Experiment experiment)
 	{
-	  detail.GlobalMembers.enabledExperiments.reset((long)experiment);
+	  detail.GlobalMembers.enabledExperiments.reset((Integer)experiment);
 	}
 
 	public static boolean toggle(Experiment experiment)
 	{
-	  var bit = (long)experiment;
+	  var bit = (Integer)experiment;
 	  var previousState = detail.GlobalMembers.enabledExperiments.test(bit);
 	  detail.GlobalMembers.enabledExperiments.flip(bit);
 	  return previousState != null;
@@ -30,7 +30,7 @@ public class GlobalMembers
 
 	public static boolean isEnabled(Experiment experiment)
 	{
-	  return detail.enabledExperiments.test((long)experiment);
+	  return detail.enabledExperiments.test((Integer)experiment);
 	}
 
 	public static void disableAllExperiments()

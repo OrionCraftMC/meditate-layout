@@ -7,5 +7,5 @@ import detail.CompactValue;
 @FunctionalInterface
 interface YGLogger
 {
-	int invoke(YGConfig config, YGNode node, YGLogLevel level, tangible.RefObject<String> format, va_list args);
+	int invoke(YGConfig config, YGNode node, YGLogLevel level, String format, va_list args);
 }

@@ -20,7 +20,7 @@
     <include_original_file_notes>true</include_original_file_notes>
     <keyword_renaming_suffix>true</keyword_renaming_suffix>
     <keyword_renaming_token>_Keyword</keyword_renaming_token>
-    <lowercase_package_names>true</lowercase_package_names>
+    <lowercase_package_names>false</lowercase_package_names>
     <package_name_if_no_namespace>facebook.yoga</package_name_if_no_namespace>
     <renaming_suffix>true</renaming_suffix>
     <renaming_token>_Conflict</renaming_token>
@@ -44,87 +44,39 @@
 
   <string_replacements>
     <replacement>
-      <find>(uint32_t|uint8_t)</find>
-      <replace>int</replace>
+      <find>YG_EXTERN_C_BEGIN</find>
+      <replace>extern "C" {</replace>
       <active>true</active>
-      <regex>true</regex>
+      <regex>false</regex>
       <match_case>false</match_case>
       <match_in_string_literals>false</match_in_string_literals>
       <match_in_comments>false</match_in_comments>
       <match_whole_word>false</match_whole_word>
-      <post_conversion>true</post_conversion>
-    </replacement>
-
-    <replacement>
-      <find>typedef YG_ENUM_BEGIN\(([^)].+)\)</find>
-      <replace>public enum $1</replace>
-      <active>true</active>
-      <regex>true</regex>
-      <match_case>false</match_case>
-      <match_in_string_literals>false</match_in_string_literals>
-      <match_in_comments>false</match_in_comments>
-      <match_whole_word>false</match_whole_word>
-      <post_conversion>true</post_conversion>
-    </replacement>
-
-    <replacement>
-      <find>YG_ENUM_END\(([^)].+)\);</find>
-      <replace></replace>
-      <active>true</active>
-      <regex>true</regex>
-      <match_case>false</match_case>
-      <match_in_string_literals>false</match_in_string_literals>
-      <match_in_comments>false</match_in_comments>
-      <match_whole_word>false</match_whole_word>
-      <post_conversion>true</post_conversion>
+      <post_conversion>false</post_conversion>
     </replacement>
 
     <replacement>
       <find>YG_EXTERN_C_END</find>
-      <replace></replace>
+      <replace>}</replace>
       <active>true</active>
       <regex>false</regex>
       <match_case>false</match_case>
       <match_in_string_literals>false</match_in_string_literals>
       <match_in_comments>false</match_in_comments>
       <match_whole_word>false</match_whole_word>
-      <post_conversion>false</post_conversion>
+      <post_conversion>true</post_conversion>
     </replacement>
 
     <replacement>
-      <find>YOGA_EXPORT</find>
-      <replace></replace>
+      <find>.copyFrom</find>
+      <replace> = </replace>
       <active>true</active>
       <regex>false</regex>
       <match_case>false</match_case>
       <match_in_string_literals>false</match_in_string_literals>
       <match_in_comments>false</match_in_comments>
       <match_whole_word>false</match_whole_word>
-      <post_conversion>false</post_conversion>
-    </replacement>
-
-    <replacement>
-      <find>WIN_EXPORT</find>
-      <replace></replace>
-      <active>true</active>
-      <regex>false</regex>
-      <match_case>false</match_case>
-      <match_in_string_literals>false</match_in_string_literals>
-      <match_in_comments>false</match_in_comments>
-      <match_whole_word>false</match_whole_word>
-      <post_conversion>false</post_conversion>
-    </replacement>
-
-    <replacement>
-      <find>const </find>
-      <replace></replace>
-      <active>true</active>
-      <regex>false</regex>
-      <match_case>false</match_case>
-      <match_in_string_literals>false</match_in_string_literals>
-      <match_in_comments>false</match_in_comments>
-      <match_whole_word>false</match_whole_word>
-      <post_conversion>false</post_conversion>
+      <post_conversion>true</post_conversion>
     </replacement>
 
     <replacement>
@@ -140,56 +92,20 @@
     </replacement>
 
     <replacement>
-      <find>new [^ _]+_Struct\(null\)</find>
-      <replace>null</replace>
+      <find>union ([^ {]+) {</find>
+      <replace>struct $1 {</replace>
       <active>true</active>
       <regex>true</regex>
       <match_case>false</match_case>
       <match_in_string_literals>false</match_in_string_literals>
       <match_in_comments>false</match_in_comments>
       <match_whole_word>false</match_whole_word>
-      <post_conversion>true</post_conversion>
+      <post_conversion>false</post_conversion>
     </replacement>
 
     <replacement>
-      <find>size_t</find>
-      <replace>long</replace>
-      <active>true</active>
-      <regex>false</regex>
-      <match_case>false</match_case>
-      <match_in_string_literals>false</match_in_string_literals>
-      <match_in_comments>false</match_in_comments>
-      <match_whole_word>false</match_whole_word>
-      <post_conversion>true</post_conversion>
-    </replacement>
-
-    <replacement>
-      <find>numeric_limits<Float>.quiet_NaN()</find>
-      <replace>Float.NaN</replace>
-      <active>true</active>
-      <regex>false</regex>
-      <match_case>false</match_case>
-      <match_in_string_literals>false</match_in_string_literals>
-      <match_in_comments>false</match_in_comments>
-      <match_whole_word>false</match_whole_word>
-      <post_conversion>true</post_conversion>
-    </replacement>
-
-    <replacement>
-      <find>Math.isNaN</find>
-      <replace>Float.isNaN</replace>
-      <active>true</active>
-      <regex>false</regex>
-      <match_case>false</match_case>
-      <match_in_string_literals>false</match_in_string_literals>
-      <match_in_comments>false</match_in_comments>
-      <match_whole_word>false</match_whole_word>
-      <post_conversion>true</post_conversion>
-    </replacement>
-
-    <replacement>
-      <find>= default</find>
-      <replace>{ }</replace>
+      <find>const noexcept</find>
+      <replace></replace>
       <active>true</active>
       <regex>false</regex>
       <match_case>false</match_case>
@@ -200,8 +116,32 @@
     </replacement>
 
     <replacement>
-      <find>operator + </find>
-      <replace>plus</replace>
+      <find>noexcept</find>
+      <replace></replace>
+      <active>true</active>
+      <regex>false</regex>
+      <match_case>false</match_case>
+      <match_in_string_literals>false</match_in_string_literals>
+      <match_in_comments>false</match_in_comments>
+      <match_whole_word>false</match_whole_word>
+      <post_conversion>false</post_conversion>
+    </replacement>
+
+    <replacement>
+      <find>(size_t|uint32_t)</find>
+      <replace>Integer</replace>
+      <active>true</active>
+      <regex>true</regex>
+      <match_case>false</match_case>
+      <match_in_string_literals>false</match_in_string_literals>
+      <match_in_comments>false</match_in_comments>
+      <match_whole_word>false</match_whole_word>
+      <post_conversion>true</post_conversion>
+    </replacement>
+
+    <replacement>
+      <find>new Integer(</find>
+      <replace>(</replace>
       <active>true</active>
       <regex>false</regex>
       <match_case>false</match_case>
@@ -224,30 +164,38 @@
     </replacement>
 
     <replacement>
-      <find>(?<!YGFloatOptional |float )(lhs|rhs)</find>
-      <replace>ConversionHelpers.getValueFromOperator($1)</replace>
+      <find>__attribute__((visibility("default"))) </find>
+      <replace></replace>
       <active>true</active>
-      <regex>true</regex>
+      <regex>false</regex>
       <match_case>false</match_case>
       <match_in_string_literals>false</match_in_string_literals>
       <match_in_comments>false</match_in_comments>
       <match_whole_word>false</match_whole_word>
-      <post_conversion>true</post_conversion>
-    </replacement>
-
-    <replacement>
-      <find>(getValueFromOperator\([^)]+\))\.unwrap\(\)</find>
-      <replace>$1</replace>
-      <active>true</active>
-      <regex>true</regex>
-      <match_case>false</match_case>
-      <match_in_string_literals>false</match_in_string_literals>
-      <match_in_comments>false</match_in_comments>
-      <match_whole_word>false</match_whole_word>
-      <post_conversion>true</post_conversion>
+      <post_conversion>false</post_conversion>
     </replacement>
   </string_replacements>
 
   <type_replacements>
+    <type>
+      <original_type>uint32_t</original_type>
+      <replacement_type>Integer</replacement_type>
+      <members>
+      </members>
+    </type>
+
+    <type>
+      <original_type>uint8_t</original_type>
+      <replacement_type>Byte</replacement_type>
+      <members>
+      </members>
+    </type>
+
+    <type>
+      <original_type>size_t</original_type>
+      <replacement_type>Integer</replacement_type>
+      <members>
+      </members>
+    </type>
   </type_replacements>
 </options>

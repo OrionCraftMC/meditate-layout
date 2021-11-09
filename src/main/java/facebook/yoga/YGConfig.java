@@ -2,27 +2,12 @@ package facebook.yoga;
 
 import java.util.*;
 
-/*
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-/*
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-
 public class YGConfig //Type originates from: YGConfig.h
 {
   @FunctionalInterface
   public interface LogWithContextFn
   {
-	  int invoke(YGConfig config, YGNode node, YGLogLevel level, Object context, tangible.RefObject<String> format, va_list args);
+	  int invoke(YGConfig config, YGNode node, YGLogLevel level, Object context, String format, va_list args);
   }
 
   @FunctionalInterface
@@ -82,15 +67,15 @@ private Struct struct = new Struct();
 	loggerUsesContext_ = false;
   }
 
-  public final void log(YGConfig config, YGNode node, YGLogLevel logLevel, Object logContext, tangible.RefObject<String> format, va_list args) //Method definition originates from: YGConfig.cpp
+  public final void log(YGConfig config, YGNode node, YGLogLevel logLevel, Object logContext, String format, va_list args) //Method definition originates from: YGConfig.cpp
   {
 	if (loggerUsesContext_)
 	{
-	  logger_.withContext(config, node, logLevel, logContext, format.argValue, args);
+	  logger_.withContext(config, node, logLevel, logContext, format, args);
 	}
 	else
 	{
-	  logger_.noContext(config, node, logLevel, format.argValue, args);
+	  logger_.noContext(config, node, logLevel, format, args);
 	}
   }
 

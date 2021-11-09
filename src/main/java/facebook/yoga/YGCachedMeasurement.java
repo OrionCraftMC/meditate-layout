@@ -5,8 +5,8 @@ public class YGCachedMeasurement //Type originates from: Yoga-internal.h
 {
   public float availableWidth;
   public float availableHeight;
-  public YGMeasureMode widthMeasureMode = new YGMeasureMode();
-  public YGMeasureMode heightMeasureMode = new YGMeasureMode();
+  public YGMeasureMode widthMeasureMode;
+  public YGMeasureMode heightMeasureMode;
 
   public float computedWidth;
   public float computedHeight;
@@ -15,12 +15,14 @@ public class YGCachedMeasurement //Type originates from: Yoga-internal.h
   {
 	  this.availableWidth = -1F;
 	  this.availableHeight = -1F;
-	  this.widthMeasureMode = YGMeasureModeUndefined;
-	  this.heightMeasureMode = YGMeasureModeUndefined;
+	  this.widthMeasureMode = new YGMeasureMode.YGMeasureModeUndefined;
+	  this.heightMeasureMode = new YGMeasureMode.YGMeasureModeUndefined;
 	  this.computedWidth = -1F;
 	  this.computedHeight = -1F;
   }
 
+//C++ TO JAVA CONVERTER WARNING: 'const' methods are not available in Java:
+//ORIGINAL LINE: boolean operator ==(YGCachedMeasurement measurement) const
   public boolean equalsTo(YGCachedMeasurement measurement)
   {
 	boolean isEqual = widthMeasureMode == measurement.widthMeasureMode && heightMeasureMode == measurement.heightMeasureMode;

@@ -1,34 +1,28 @@
 package facebook.yoga;
 
-/*
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-
-
 public class YGFloatOptional //Type originates from: YGFloatOptional.h
 {
-  private float value_ = Float.NaN;
+  private float value_ = numeric_limits<Float>.quiet_NaN();
 
   public YGFloatOptional(float value)
   {
 	  this.value_ = value;
   }
-  public YGFloatOptional()
-  {
-  }
+//C++ TO JAVA CONVERTER TODO TASK: Java has no equivalent to ' = default':
+//  constexpr YGFloatOptional() = default;
 
-  // returns the wrapped value, or a value x with YGIsUndefined(x) == true
+
+//C++ TO JAVA CONVERTER WARNING: 'const' methods are not available in Java:
+//ORIGINAL LINE: constexpr float unwrap() const
   public final float unwrap()
   {
 	  return value_;
   }
 
+//C++ TO JAVA CONVERTER WARNING: 'const' methods are not available in Java:
+//ORIGINAL LINE: boolean isUndefined() const
   public final boolean isUndefined()
   {
-	  return Float.isNaN(value_);
+	  return Math.isNaN(value_);
   }
 }

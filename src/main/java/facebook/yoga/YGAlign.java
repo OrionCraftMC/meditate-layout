@@ -1,0 +1,25 @@
+package facebook.yoga;
+
+public enum YGAlign //Type originates from: YGEnums.h
+{
+	YGAlignAuto,
+	YGAlignFlexStart,
+	YGAlignCenter,
+	YGAlignFlexEnd,
+	YGAlignStretch,
+	YGAlignBaseline,
+	YGAlignSpaceBetween,
+	YGAlignSpaceAround;
+
+	public static final int SIZE = java.lang.Integer.SIZE;
+
+	public int getValue()
+	{
+		return this.ordinal();
+	}
+
+	public static YGAlign forValue(int value)
+	{
+		return values()[value];
+	}
+}
