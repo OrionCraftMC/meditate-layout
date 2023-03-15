@@ -209,6 +209,8 @@ public abstract class YogaNode implements YogaProps {
 
   public abstract YGSize measure(float width, int widthMode, float height, int heightMode);
 
+  public abstract YGSize measure(float width, YogaMeasureMode widthMode, float height, YogaMeasureMode heightMode);
+
   public abstract void setMeasureFunction(YogaMeasureFunction measureFunction);
 
   public abstract void setBaselineFunction(YogaBaselineFunction baselineFunction);

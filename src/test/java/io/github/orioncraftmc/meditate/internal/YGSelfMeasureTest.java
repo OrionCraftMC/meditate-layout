@@ -8,7 +8,7 @@ public class YGSelfMeasureTest {
         var measuredWidth = width;
 
         if(measuredWidth == 0f || measuredWidth == Float.NaN) {
-            measuredWidth = node.measure(width, widthMode.intValue(), 0f, YogaMeasureMode.EXACTLY.intValue()).width;
+            measuredWidth = node.measure(width, widthMode, 0f, YogaMeasureMode.EXACTLY).width;
         }
 
         var newHeight = measuredWidth * .75f;

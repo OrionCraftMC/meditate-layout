@@ -528,6 +528,11 @@ public class YogaNodeWrapper extends YogaNode implements Cloneable {
                 widthMode.getValue(), height, heightMode.getValue());
     }
 
+    public YGSize measure(float width, YogaMeasureMode widthMode, float height, YogaMeasureMode heightMode) {
+        return measure(width, widthMode.intValue(), height, heightMode.intValue());
+    }
+
+
     // Implementation Note: Why this method needs to stay final
     //
     // We cache the jmethodid for this method in Yoga code. This means that even if a subclass
