@@ -9,6 +9,7 @@ package io.github.orioncraftmc.meditate;
 
 import io.github.orioncraftmc.meditate.enums.*;
 import io.github.orioncraftmc.meditate.interfaces.*;
+import io.github.orioncraftmc.meditate.internal.YGSize;
 import org.jetbrains.annotations.Nullable;
 
 public abstract class YogaNode implements YogaProps {
@@ -205,6 +206,8 @@ public abstract class YogaNode implements YogaProps {
   public abstract float getLayoutBorder(YogaEdge edge);
 
   public abstract YogaDirection getLayoutDirection();
+
+  public abstract YGSize measure(float width, int widthMode, float height, int heightMode);
 
   public abstract void setMeasureFunction(YogaMeasureFunction measureFunction);
 
